@@ -1,0 +1,1719 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-GB" lang="en-GB"> <head profile="http://dublincore.org/documents/dcq-html/"> <!-- Barlesque 2.54.3 --> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> <meta name="description" content="BBC iPlayer Search - Search for BBC programmes." /> <meta name="keywords" content="" />  <meta name="DCTERMS.created" content="" />    <title>	BBC iPlayer - Search    :david attenborough</title>     
+
+   <meta http-equiv="X-UA-Compatible" content="IE=8" />  
+
+  <link rel="schema.dcterms" href="http://purl.org/dc/terms/" />  <link rel="index" href="http://www.bbc.co.uk/a-z/" title="A to Z" /> <link rel="copyright" href="http://www.bbc.co.uk/terms/" title="Terms of Use" /> <link rel="icon" href="http://www.bbc.co.uk/favicon.ico" type="image/x-icon" />  <meta name="viewport" content="width = 996" /> 
+
+
+
+<script type="text/javascript">/*<![CDATA[*/
+
+window.orb = window.orb || {};
+
+(function() {
+
+    'use strict';
+
+    window.fig = window.fig || {};
+
+    window.fig.manager = {
+
+                include: function(w) {
+
+            w = w || window;
+
+            var d = w.document,
+
+                c = d.cookie,
+
+                f = c.match(/ckns_orb_fig=([^;]+)/);
+
+            
+
+            if ( !f && c.indexOf('ckns_orb_nofig=1') > -1 ) {
+
+                this.setFig(w, {no:1});
+
+            }
+
+            else {
+
+                if (f) {
+
+                    eval('f = ' + RegExp.$1 + ';')
+
+                    this.setFig(w, f);                  
+
+                }
+
+                d.write('<script src="//www.live.bbc.co.uk/frameworks/fig/1/fig.js"><'+'/script>');
+
+            }         
+
+  
+
+        },
+
+                confirm: function(w) {
+
+            w = w || window;
+
+            if (w.orb && w.orb.fig && w.orb.fig('no')) {
+
+               this.setFigCookie(w);
+
+            }
+
+            
+
+            if (w.orb === undefined || w.orb.fig === undefined) {
+
+                this.setFig(w, {no:1});
+
+                this.setFigCookie(w);
+
+            }
+
+        },
+
+                setFigCookie: function(w) {
+
+            w.document.cookie = 'ckns_orb_nofig=1; expires=' + new Date(new Date().getTime() + 1000 * 60 * 10).toGMTString() + ';';
+
+        },
+
+                setFig: function(w, f){
+
+            (function(){var o=f;w.orb=w.orb||{};w.orb.fig=function(k){return (arguments.length)? o[k]:o};})();
+
+        }
+
+    }
+
+})();
+
+fig.manager.include();
+
+/*]]>*/</script>
+
+<script type="text/javascript"> fig.manager.confirm(); </script>
+
+
+
+ <link rel="stylesheet" type="text/css" href="http://static.bbci.co.uk/frameworks/barlesque/2.54.3/desktop/3.5/style/main.css"  />  <link rel="stylesheet" type="text/css" href="http://static.bbci.co.uk/iplayer/3.68.1/style/iplayer-min/global_iplayer.css"  />  <link rel="stylesheet" type="text/css" href="http://static.bbci.co.uk/iplayer/3.68.1/style/search/search.css"  />  <script type="text/javascript">/*<![CDATA[*/ (function(undefined){if(!window.bbc){window.bbc={}}var ROLLING_PERIOD_DAYS=30;window.bbc.Mandolin=function(id,segments,opts){var now=new Date().getTime(),storedItem,DEFAULT_START=now,DEFAULT_RATE=1,COOKIE_NAME="ckpf_mandolin";opts=opts||{};this._id=id;this._segmentSet=segments;this._store=new window.window.bbc.Mandolin.Storage(COOKIE_NAME);this._opts=opts;this._rate=(opts.rate!==undefined)?+opts.rate:DEFAULT_RATE;this._startTs=(opts.start!==undefined)?new Date(opts.start).getTime():new Date(DEFAULT_START).getTime();this._endTs=(opts.end!==undefined)?new Date(opts.end).getTime():daysFromNow(ROLLING_PERIOD_DAYS);this._signupEndTs=(opts.signupEnd!==undefined)?new Date(opts.signupEnd).getTime():this._endTs;this._segment=null;if(typeof id!=="string"){throw new Error("Invalid Argument: id must be defined and be a string")}if(Object.prototype.toString.call(segments)!=="[object Array]"){throw new Error("Invalid Argument: Segments are required.")}if(opts.rate!==undefined&&(opts.rate<0||opts.rate>1)){throw new Error("Invalid Argument: Rate must be between 0 and 1.")}if(this._startTs>this._endTs){throw new Error("Invalid Argument: end date must occur after start date.")}if(!(this._startTs<this._signupEndTs&&this._signupEndTs<=this._endTs)){throw new Error("Invalid Argument: SignupEnd must be between start and end date")}removeExpired.call(this,now);if((storedItem=this._store.getItem(this._id))){this._segment=storedItem.segment}else{if(this._startTs<=now&&now<this._signupEndTs&&now<=this._endTs&&this._store.isEnabled()===true){this._segment=pick(segments,this._rate);if(opts.end===undefined){this._store.setItem(this._id,{segment:this._segment})}else{this._store.setItem(this._id,{segment:this._segment,end:this._endTs})}log.call(this,"mandolin_segment")}}log.call(this,"mandolin_view")};window.bbc.Mandolin.prototype.getSegment=function(){return this._segment};function log(actionType,params){var that=this;require(["istats-1"],function(istats){istats.log(actionType,that._id+":"+that._segment,params?params:{})})}function removeExpired(expires){var items=this._store.getItems(),expiresInt=+expires;for(var key in items){if(items[key].end!==undefined&&+items[key].end<expiresInt){this._store.removeItem(key)}}}function getLastExpirationDate(data){var winner=0,rollingExpire=daysFromNow(ROLLING_PERIOD_DAYS);for(var key in data){if(data[key].end===undefined&&rollingExpire>winner){winner=rollingExpire}else{if(+data[key].end>winner){winner=+data[key].end}}}return(winner)?new Date(winner):new Date(rollingExpire)}window.bbc.Mandolin.prototype.log=function(params){log.call(this,"mandolin_log",params)};window.bbc.Mandolin.prototype.convert=function(params){log.call(this,"mandolin_convert",params);this.convert=function(){}};function daysFromNow(n){var endDate;endDate=new Date().getTime()+(n*60*60*24)*1000;return endDate}function pick(segments,rate){var picked,min=0,max=segments.length-1;if(typeof rate==="number"&&Math.random()>rate){return null}do{picked=Math.floor(Math.random()*(max-min+1))+min}while(picked>max);return segments[picked]}window.bbc.Mandolin.Storage=function(name){this._cookieName=name;this._isEnabled=(bbccookies.isAllowed(this._cookieName)===true&&bbccookies.cookiesEnabled()===true)};window.bbc.Mandolin.Storage.prototype.setItem=function(key,value){var storeData=this.getItems();storeData[key]=value;this.save(storeData);return value};window.bbc.Mandolin.Storage.prototype.isEnabled=function(){return this._isEnabled};window.bbc.Mandolin.Storage.prototype.getItem=function(key){var storeData=this.getItems();return storeData[key]};window.bbc.Mandolin.Storage.prototype.removeItem=function(key){var storeData=this.getItems();delete storeData[key];this.save(storeData)};window.bbc.Mandolin.Storage.prototype.getItems=function(){return deserialise(this.readCookie(this._cookieName)||"")};window.bbc.Mandolin.Storage.prototype.save=function(data){window.bbccookies.set(this._cookieName+"="+serialise(data)+"; expires="+getLastExpirationDate(data).toUTCString()+";")};window.bbc.Mandolin.Storage.prototype.readCookie=function(name){var nameEQ=name+"=",ca=window.bbccookies.get().split(";"),i,c;for(i=0;i<ca.length;i++){c=ca[i];while(c.charAt(0)===" "){c=c.substring(1,c.length)}if(c.indexOf(nameEQ)===0){return c.substring(nameEQ.length,c.length)}}return null};function serialise(o){var str="";for(var p in o){if(o.hasOwnProperty(p)){str+='"'+p+'"'+":"+(typeof o[p]==="object"?(o[p]===null?"null":"{"+serialise(o[p])+"}"):'"'+o[p].toString().replace(/"/g,'\\"')+'"')+","}}return str.replace(/,\}/g,"}").replace(/,$/g,"")}function deserialise(str){var o;eval("o = {"+str+"}");return o}})(); /*]]>*/</script>  <script type="text/javascript">/*<![CDATA[*/ if (typeof bbccookies_flag === 'undefined') { bbccookies_flag = 'ON'; } showCTA_flag = true; cta_enabled = (showCTA_flag && (bbccookies_flag === 'ON') ); (function(){var e="ckns_policy",m="Thu, 01 Jan 1970 00:00:00 GMT",k={ads:true,personalisation:true,performance:true,necessary:true};function f(p){if(f.cache[p]){return f.cache[p]}var o=p.split("/"),q=[""];do{q.unshift((o.join("/")||"/"));o.pop()}while(q[0]!=="/");f.cache[p]=q;return q}f.cache={};function a(p){if(a.cache[p]){return a.cache[p]}var q=p.split("."),o=[];while(q.length&&"|co.uk|com|".indexOf("|"+q.join(".")+"|")===-1){if(q.length){o.push(q.join("."))}q.shift()}f.cache[p]=o;return o}a.cache={};function i(o,t,p){var z=[""].concat(a(window.location.hostname)),w=f(window.location.pathname),y="",r,x;for(var s=0,v=z.length;s<v;s++){r=z[s];for(var q=0,u=w.length;q<u;q++){x=w[q];y=o+"="+t+";"+(r?"domain="+r+";":"")+(x?"path="+x+";":"")+(p?"expires="+p+";":"");bbccookies.set(y,true)}}}window.bbccookies={_setEverywhere:i,cookiesEnabled:function(){var o="ckns_testcookie"+Math.floor(Math.random()*100000);this.set(o+"=1");if(this.get().indexOf(o)>-1){g(o);return true}return false},set:function(o){return document.cookie=o},get:function(){return document.cookie},_setPolicy:function(o){return h.apply(this,arguments)},readPolicy:function(o){return b.apply(this,arguments)},_deletePolicy:function(){i(e,"",m)},isAllowed:function(){return true},_isConfirmed:function(){return c()!==null},_acceptsAll:function(){var o=b();return o&&!(j(o).indexOf("0")>-1)},_getCookieName:function(){return d.apply(this,arguments)},_showPrompt:function(){var o=(!this._isConfirmed()&&window.cta_enabled&&this.cookiesEnabled()&&!window.bbccookies_disable);return(window.orb&&window.orb.fig)?o&&(window.orb.fig("no")||window.orb.fig("ck")):o}};bbccookies._getPolicy=bbccookies.readPolicy;function d(p){var o=(""+p).match(/^([^=]+)(?==)/);return(o&&o.length?o[0]:"")}function j(o){return""+(o.ads?1:0)+(o.personalisation?1:0)+(o.performance?1:0)}function h(r){if(typeof r==="undefined"){r=k}if(typeof arguments[0]==="string"){var o=arguments[0],q=arguments[1];if(o==="necessary"){q=true}r=b();r[o]=q}else{if(typeof arguments[0]==="object"){r.necessary=true}}var p=new Date();p.setYear(p.getFullYear()+1);p=p.toUTCString();bbccookies.set(e+"="+j(r)+";domain=bbc.co.uk;path=/;expires="+p+";");bbccookies.set(e+"="+j(r)+";domain=bbc.com;path=/;expires="+p+";");return r}function l(o){if(o===null){return null}var p=o.split("");return{ads:!!+p[0],personalisation:!!+p[1],performance:!!+p[2],necessary:true}}function c(){var o=new RegExp("(?:^|; ?)"+e+"=(\\d\\d\\d)($|;)"),p=document.cookie.match(o);if(!p){return null}return p[1]}function b(o){var p=l(c());if(!p){p=k}if(o){return p[o]}else{return p}}function g(o){return document.cookie=o+"=;expires="+m+";"}function n(){var o='<script type="text/javascript" src="http://static.bbci.co.uk/frameworks/bbccookies/0.6.2/script/bbccookies.js"><\/script>';if(window.bbccookies_flag==="ON"&&!bbccookies._acceptsAll()&&!window.bbccookies_disable){document.write(o)}}n()})(); /*]]>*/</script>      <script type="text/javascript"> if (! window.gloader) { window.gloader = [ "glow", {map: "http://node1.bbcimg.co.uk/glow/glow/map.1.7.7.js"}]; } </script>  <script type="text/javascript" src="http://node1.bbcimg.co.uk/glow/gloader.0.1.6.js"></script>   <script type="text/javascript" src="http://static.bbci.co.uk/frameworks/requirejs/0.13.1/sharedmodules/require.js"></script> <script type="text/javascript">  bbcRequireMap = {"jquery-1":"http://static.bbci.co.uk/frameworks/jquery/0.3.0/sharedmodules/jquery-1.7.2", "jquery-1.4":"http://static.bbci.co.uk/frameworks/jquery/0.3.0/sharedmodules/jquery-1.4", "jquery-1.9":"http://static.bbci.co.uk/frameworks/jquery/0.3.0/sharedmodules/jquery-1.9.1", "swfobject-2":"http://static.bbci.co.uk/frameworks/swfobject/0.1.10/sharedmodules/swfobject-2", "demi-1":"http://static.bbci.co.uk/frameworks/demi/0.10.0/sharedmodules/demi-1", "gelui-1":"http://static.bbci.co.uk/frameworks/gelui/0.9.13/sharedmodules/gelui-1", "cssp!gelui-1/overlay":"http://static.bbci.co.uk/frameworks/gelui/0.9.13/sharedmodules/gelui-1/overlay.css", "istats-1":"http://static.bbci.co.uk/frameworks/istats/0.16.1/modules/istats-1", "relay-1":"http://static.bbci.co.uk/frameworks/relay/0.2.4/sharedmodules/relay-1", "clock-1":"http://static.bbci.co.uk/frameworks/clock/0.1.9/sharedmodules/clock-1", "canvas-clock-1":"http://static.bbci.co.uk/frameworks/clock/0.1.9/sharedmodules/canvas-clock-1", "cssp!clock-1":"http://static.bbci.co.uk/frameworks/clock/0.1.9/sharedmodules/clock-1.css", "jssignals-1":"http://static.bbci.co.uk/frameworks/jssignals/0.3.6/modules/jssignals-1", "jcarousel-1":"http://static.bbci.co.uk/frameworks/jcarousel/0.1.10/modules/jcarousel-1"}; require({ baseUrl: 'http://static.bbci.co.uk/', paths: bbcRequireMap, waitSeconds: 30 }); </script>      <script type="text/javascript" src="http://static.bbci.co.uk/frameworks/barlesque/2.54.3/desktop/3.5/script/barlesque.js"></script>
+
+  
+
+<!--[if IE 6]>
+
+        <script type="text/javascript">
+
+        try {
+
+            document.execCommand("BackgroundImageCache",false,true);
+
+        } catch(e) {}
+
+    </script>
+
+        <style type="text/css">
+
+        /* Use filters for IE6 */
+
+        #blq-blocks a {
+
+            background-image: none;
+
+            filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://static.bbci.co.uk/frameworks/barlesque/2.54.3/desktop/3.5//img/blq-blocks_white_alpha.png', sizingMethod='image');
+
+        }
+
+        .blq-masthead-focus #blq-blocks a,
+
+        .blq-mast-text-dark #blq-blocks a {
+
+            background-image: none;
+
+            filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://static.bbci.co.uk/frameworks/barlesque/2.54.3/desktop/3.5//img/blq-blocks_grey_alpha.png', sizingMethod='image');
+
+        }
+
+        #blq-nav-search button span {
+
+            background-image: none;
+
+            filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://static.bbci.co.uk/frameworks/barlesque/2.54.3/desktop/3.5//img/blq-search_grey_alpha.png', sizingMethod='image');
+
+        }
+
+        #blq-nav-search button img {
+
+            position: absolute;
+
+            left: -999em;    
+
+        }
+
+    </style>
+
+<![endif]-->
+
+
+
+<!--[if (IE 7])|(IE 8)>
+
+    <style type="text/css">
+
+        .blq-clearfix {
+
+            display: inline-block;
+
+        }
+
+    </style>
+
+<![endif]-->
+
+
+
+<script type="text/javascript">
+
+     blq.setEnvironment('live');  if (blq.setLabel) blq.setLabel('searchSuggestion', "Search");  if (! /bbc\.co\.uk$/i.test(window.location.hostname) ) { document.documentElement.className += ' blq-not-bbc-co-uk'; } </script>
+
+
+
+  <script> function oqsSurveyManager(w, flag) { /* We use the pulse survey 70% of the time */ var defaultThreshold = 0.7, usePulseThreshold = (flag === 'OFF')? 1 : defaultThreshold; w.oqs = w.oqs || {}; w.oqs.usePulseThreshold = (w.document.cookie.match(/(?:^|; *)ckns_oqs_usePulseThreshold=([\d.]+)/)? RegExp.$1 : usePulseThreshold); w.oqs.usePulse = (w.Math.random() < w.oqs.usePulseThreshold); if (!w.oqs.usePulse) { /* Please note that this script is included 3 times in the Barlesque code base - one for each Barlesque version */ w.document.write('<script src="http://static.bbci.co.uk/frameworks/barlesque/2.54.3/desktop/3.5/script/vendor/edr.js"><'+'/script>'); } } oqsSurveyManager(window, 'OFF'); </script> 
+
+ <script type="text/javascript"> /* <![CDATA[ */ define('id-statusbar-config', { 'translation_signedout': "Sign in", 'translation_signedin': "Your account", 'use_overlay' : true, 'signin_url' : "https://ssl.bbc.co.uk/id/signin?ptrt=http%3A%2F%2Fwww.bbc.co.uk%2Fiplayer%2Fsearch%3Fq%3Ddavid%2520attenborough", 'locale' : "en-GB", 'policyname' : "", 'ptrt' : "http://www.bbc.co.uk/iplayer/search?q=david%20attenborough" }); /* ]]> */ </script>  <script type="text/javascript"> (function () { if (! window.require) { throw new Error('idcta: could not find require'); } var map = {}; map['idapp-1'] = 'http://static.bbci.co.uk/idapp/0.59.3/modules/idapp/idapp-1'; map['idcta/idcta-1'] = 'http://static.bbci.co.uk/id/0.22.4/modules/idcta/idcta-1'; require({paths: map}); define('id-config', {"idapp":{"version":"0.59.3","hostname":"ssl.bbc.co.uk","tld":"bbc.co.uk"},"idtranslations":{"version":"0.26.2"},"identity":{"baseUrl":"https:\/\/talkback.live.bbc.co.uk\/identity"},"pathway":{"name":null,"staticAssetUrl":"http:\/\/static.bbci.co.uk\/idapp\/0.59.3\/modules\/idapp\/idapp-1\/View.css"}}); })(); </script>   	<link rel="shortcut icon" href="http://www.bbc.co.uk/iplayer/favicon.ico" type="image/x-icon" />
+
+    <meta name="msapplication-TileImage" content="http://static.bbci.co.uk/iplayer/3.68.1/img/iplayer-tile.png"/>
+
+    <meta name="msapplication-TileColor" content="#000000"/>
+
+
+
+	<script type="text/javascript">
+
+		gloader.load(["glow", "1", "glow.anim", "glow.dom", "glow.widgets", "glow.embed", "glow.net", "glow.widgets.Carousel", "glow.widgets.AutoSuggest", "glow.widgets.Panel", "glow.dragdrop"]);
+
+	</script>
+
+
+
+<script type="text/javascript">
+
+	document.documentElement.className += ' blq-js';
+
+    var appJSVersion = '';
+
+
+
+	        appJSVersion = 'build/targets/webapp/app';
+
+
+
+    
+
+	// <![CDATA[
+
+	//set the search box to display the right default text
+
+	blq.setLabel('searchSuggestion', 'Search BBC iPlayer');
+
+
+
+
+
+	//set the search box to display the right default text
+
+	blq.setLabel('searchSuggestion', 'Search BBC iPlayer');
+
+
+
+        window.iplayer = window.iplayer || {};
+
+    window.iplayer.servicetype = {
+
+        master: 'tv',
+
+        current: 'tv'
+
+    };
+
+
+
+	
+
+	// ]]>
+
+</script>
+
+
+
+
+
+<!--[if IE 9]>
+
+    <link rel="stylesheet" type="text/css" href="http://static.bbci.co.uk/iplayer/3.68.1/style/ie9.css"  />
+
+<![endif]-->
+
+
+
+<!--[if IE 8]>
+
+	<link rel="stylesheet" type="text/css" href="http://static.bbci.co.uk/iplayer/3.68.1/style/ie8.css"  />
+
+<![endif]-->
+
+
+
+<!--[if lte IE 7]>
+
+	<link rel="stylesheet" type="text/css" href="http://static.bbci.co.uk/iplayer/3.68.1/style/ie7.css"  />
+
+<![endif]-->
+
+
+
+<!--[if IE 6]>
+
+	<link rel="stylesheet" type="text/css" href="http://static.bbci.co.uk/iplayer/3.68.1/style/ie6.css"  />
+
+<![endif]-->
+
+
+
+<!--[if gte IE 9]>
+
+	<meta name="application-name" content="BBC iPlayer" />
+
+	<meta name="msapplication-tooltip" content="BBC iPlayer TV - watch live BBC TV or catch up on the last 7 days of BBC programmes." />
+
+	<meta name="msapplication-starturl" content="http://www.bbc.co.uk/iplayer/" />
+
+<![endif]-->
+
+
+
+
+
+                        </head> <body class="iplayer">      <script type="text/javascript">/*<![CDATA[*/ bbcFlagpoles_istats = 'ON'; istatsTrackingUrl = '//sa.bbc.co.uk/bbc/bbc/s?name=iplayer.search.results.page&service_type=tv&geo_edition=gb&app_version=3.68.1&prod_type=web&ns_search_result=33&ns_search_term=david+attenborough&pal_route=search&ml_name=barlesque&app_type=web&language=en-GB&ml_version=0.16.1&pal_webapp=iplayer&prod_name=iplayer&app_name=iplayer'; if (window.istats_countername) { istatsTrackingUrl = istatsTrackingUrl.replace(/([?&]name=)[^&]+/ig, '$1' + istats_countername); } (function() { if ( /\bIDENTITY=/.test(document.cookie) ) { istatsTrackingUrl += '&bbc_identity=1'; } var c = (document.cookie.match(/\bckns_policy=(\d\d\d)/)||[]).pop() || ''; istatsTrackingUrl += '&bbc_mc=' + (c? 'ad'+c.charAt(0)+'ps'+c.charAt(1)+'pf'+c.charAt(2) : 'not_set'); if ( /\bckns_policy=\d\d0/.test(document.cookie) ) { istatsTrackingUrl += '&ns_nc=1'; } var screenWidthAndHeight = 'unavailable'; if (window.screen && screen.width && screen.height) { screenWidthAndHeight = screen.width + 'x' + screen.height; } istatsTrackingUrl += ('&screen_resolution=' + screenWidthAndHeight); istatsTrackingUrl += '&blq_s=3.5&blq_r=3.5&blq_v=default-domestic'; })(); /*]]>*/</script>  <!-- Begin iStats 20100118 (UX-CMC 1.1009.3) --> <script type="text/javascript">/*<![CDATA[*/ (function() { window.istats || (istats = {}); var cookieDisabled = (document.cookie.indexOf('NO-SA=') != -1), hasCookieLabels = (document.cookie.indexOf('sa_labels=') != -1), hasClickThrough = /^#sa-(.*?)(?:-sa(.*))?$/.test(document.location.hash), runSitestat = !cookieDisabled && !hasCookieLabels && !hasClickThrough && !istats._linkTracked; if (runSitestat && bbcFlagpoles_istats === 'ON') { sitestat(istatsTrackingUrl); } else { window.ns_pixelUrl = istatsTrackingUrl; /* used by Flash library to track */ } function sitestat(n){var j=document,f=j.location,b="";if(j.cookie.indexOf("st_ux=")!=-1){var k=j.cookie.split(";");var e="st_ux",h=document.domain,a="/";if(typeof ns_!="undefined"&&typeof ns_.ux!="undefined"){e=ns_.ux.cName||e;h=ns_.ux.cDomain||h;a=ns_.ux.cPath||a}for(var g=0,f=k.length;g<f;g++){var m=k[g].indexOf("st_ux=");if(m!=-1){b="&"+unescape(k[g].substring(m+6))}}document.cookie=e+"=; expires="+new Date(new Date().getTime()-60).toGMTString()+"; path="+a+"; domain="+h}ns_pixelUrl=n;n=ns_pixelUrl+"&ns__t="+(new Date().getTime())+"&ns_c="+((j.characterSet)?j.characterSet:j.defaultCharset)+"&ns_ti="+escape(j.title)+b+"&ns_jspageurl="+escape(f&&f.href?f.href:j.URL)+"&ns_referrer="+escape(j.referrer);if(n.length>2000&&n.lastIndexOf("&")){n=n.substring(0,n.lastIndexOf("&")+1)+"ns_cut="+n.substring(n.lastIndexOf("&")+1,n.lastIndexOf("=")).substring(0,40)}(j.images)?new Image().src=n:j.write('<p><i'+'mg src="'+n+'" height="1" width="1" alt="" /></p>')}; })(); /*]]>*/</script> <noscript><p style="position: absolute; top: -999em;"><img src="//sa.bbc.co.uk/bbc/bbc/s?name=iplayer.search.results.page&amp;service_type=tv&amp;geo_edition=gb&amp;app_version=3.68.1&amp;prod_type=web&amp;ns_search_result=33&amp;ns_search_term=david+attenborough&amp;pal_route=search&amp;ml_name=barlesque&amp;app_type=web&amp;language=en-GB&amp;ml_version=0.16.1&amp;pal_webapp=iplayer&amp;prod_name=iplayer&amp;app_name=iplayer&amp;blq_s=3.5&amp;blq_r=3.5&amp;blq_v=default-domestic" height="1" width="1" alt="" /></p></noscript> <!-- End iStats (UX-CMC) -->   <div id="blq-global"> <div id="blq-pre-mast" lang="en-GB"> <!-- Pre mast -->  </div> </div>  <script type="text/html" id="blq-bbccookies-tmpl"><![CDATA[ <div id="bbccookies-prompt" class="bbccookies-d"> <h2> Cookies on the BBC website </h2> <p> We use cookies to ensure that we give you the best experience on our website.<span class="bbccookies-international-message"> We also use cookies to ensure we show you advertising that is relevant to you.</span> If you continue without changing your settings, we'll assume that you are happy to receive all cookies on the BBC website. However, if you would like to, you can <a href="/privacy/cookies/managing/cookie-settings.html">change your cookie settings</a> at any time. </p> <ul> <li id="bbccookies-continue"> <button type="button" id="bbccookies-continue-button">Continue</button> </li> <li id="bbccookies-more"><a href="/privacy/cookies/bbc">Find out more</a></li></ul> </div> ]]></script> <script type="text/javascript">/*<![CDATA[*/ (function(){if(bbccookies._showPrompt()){var i=document,b=i.getElementById("blq-pre-mast"),f=i.getElementById("blq-global"),h=i.getElementById("blq-container"),c=i.getElementById("blq-bbccookies-tmpl"),a,g,e;if(b&&i.createElement){a=i.createElement("div");a.id="bbccookies";e=c.innerHTML;e=e.replace("<"+"![CDATA[","").replace("]]"+">","");a.innerHTML=e;if(f){f.insertBefore(a,b)}else{h.insertBefore(a,b)}g=i.getElementById("bbccookies-continue-button");g.onclick=function(){a.parentNode.removeChild(a);return false};bbccookies._setPolicy()}}})(); /*]]>*/</script>  <div id="blq-masthead" class="blq-clearfix blq-mast-bg-transparent-dark blq-lang-en-GB blq-ltr"> <span id="blq-mast-background"><span></span></span>  <div id="blq-mast" class="blq-rst">  <div id="blq-mast-bar" class="blq-masthead-container blq-default-domestic"> <div id="blq-blocks"> <a href="http://www.bbc.co.uk/" hreflang="en-GB"> <abbr title="British Broadcasting Corporation" class="blq-home"> <img src="http://static.bbci.co.uk/frameworks/barlesque/2.54.3/desktop/3.5/img/blq-blocks_grey_alpha.png" alt="BBC" width="84" height="24" /> </abbr> </a> </div> <div id="blq-acc-links"> <h2 id="page-top">Accessibility links</h2> <ul>  <li><a href="#blq-content">Skip to content</a></li>  <li><a href="#blq-local-nav">Skip to local navigation</a></li>  <li><a href="http://www.bbc.co.uk/accessibility/">Accessibility Help</a></li> </ul> </div> <div id="blq-sign-in" class="blq-gel">   <div id="id-status" class="blq-id-v4"> <div class="id-out id-gel"> <h2 class="blq-hide">BBC iD</h2> <a href="https://ssl.bbc.co.uk/id/status?ptrt=http%3A%2F%2Fwww.bbc.co.uk%2Fiplayer%2Fsearch%3Fq%3Ddavid%2520attenborough" id="blq-idstatus-link"> <span class="id-icon"> <span></span> </span> <span id="blq-idstatus-text"> BBC iD </span> <span class="id-spinner"></span> <span class="blq-dropdown-arrow"> <span></span> </span> </a> </div> <div id="id-status-nav" > <div class="id-in blq-rst"> <ul> <li> <a name="idDash" class="blq-nogo has-ptrt idDash" href="https://ssl.bbc.co.uk/id/settings"> Settings </a> </li> <li> <a name="idSignout" class="blq-nogo has-ptrt idSignout" href="https://ssl.bbc.co.uk/id/signout?ptrt=http%3A%2F%2Fwww.bbc.co.uk%2Fiplayer%2Fsearch%3Fq%3Ddavid%2520attenborough"> Sign out </a> </li> </ul> </div> </div> </div>          </div> <div id="blq-nav"> <h2>bbc.co.uk navigation</h2>     <ul id="blq-nav-main">   <li id="blq-nav-news"> <a href="http://www.bbc.co.uk/news/">News</a> </li>    <li id="blq-nav-sport"> <a href="http://www.bbc.co.uk/sport/">Sport</a> </li>    <li id="blq-nav-weather"> <a href="http://www.bbc.co.uk/weather/">Weather</a> </li>    <li id="blq-nav-iplayer"> <a href="http://www.bbc.co.uk/iplayer/">iPlayer</a> </li>    <li id="blq-nav-tv"> <a href="http://www.bbc.co.uk/tv/">TV</a> </li>    <li id="blq-nav-radio"> <a href="http://www.bbc.co.uk/radio/">Radio</a> </li>    <li id="blq-nav-more"> <a href="http://www.bbc.co.uk/a-z/">More&hellip;</a> </li>   </ul>   <div id="blq-nav-search"> <form method="get" action="http://search.bbc.co.uk/search" accept-charset="utf-8" id="blq-search-form"> <div>  <input type="hidden" name="go" value="toolbar" />  <input type="hidden" name="uri" value="/iplayer/search?q=david%20attenborough" />    <input type="hidden" name="scope" value="iplayer" />  <label for="blq-search-q" class="blq-hide">Search term:</label> <input id="blq-search-q" type="text" name="q" value="" maxlength="128" /> <button id="blq-search-btn" type="submit"><span><img src="http://static.bbci.co.uk/frameworks/barlesque/2.54.3/desktop/3.5/img/blq-search_grey_alpha.png" width="13" height="13" alt="Search"/></span></button> </div> </form> </div>  </div> </div> </div> </div> <div id="blq-container-outer" class="blq-default-domestic blq-ltr" >  <div id="blq-container" class="blq-lang-en-GB"> <div id="blq-container-inner" lang="en-GB">   <div id="blq-main" class="blq-clearfix">    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="bip-nav">
+
+    <ul id="blq-local-nav">
+
+		<li id="nav-logo">
+
+			<a href="/iplayer/">
+
+				<span class="blq-hide">BBC iPlayer</span>
+
+			</a>
+
+		</li>
+
+					<li				>
+
+				<a href="/iplayer/tv">
+
+					TV				</a>
+
+			</li>
+
+					<li id="nav-radio"				>
+
+				<a href="/iplayer/radio">
+
+					Radio				</a>
+
+			</li>
+
+		    </ul>
+
+</div>
+
+
+
+<div id="bip-main" class="blq-clearfix full-module-container no-divider bip-lang-en">
+
+    <div id="blq-content">
+
+        
+
+
+
+<div id="search" class="full-module">
+
+	<div class="full-module-content">
+
+		
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+				
+
+
+
+<h1> &lsquo;david attenborough&rsquo;</h1>
+
+<h2>BBC Programmes</h2>
+
+
+
+<div class="results">
+
+	
+
+	
+
+			<ul class="filter">
+
+			<li role="button"  class="selected" id="filter-first">
+
+				<a href="/iplayer/search?q=david+attenborough">
+
+				    TV & Radio				    					<span class="blq-hide context">selected</span>
+
+				    				</a>
+
+			</li>
+
+			<li role="button" >
+
+				<a href="/iplayer/search?q=david+attenborough&filter=tv">
+
+				    TV				    				</a>
+
+			</li>
+
+			<li role="button"  id="filter-last">
+
+				<a href="/iplayer/search?q=david+attenborough&filter=radio">
+
+				    Radio				    				</a>
+
+			</li>
+
+		</ul>
+
+		
+
+
+
+		
+
+	<div class="pagination-control">
+
+
+
+		<!-- Previous page link -->
+
+		
+
+		<ol>
+
+			<!-- Numbered page links -->
+
+							<li>
+
+											<span>1</span>
+
+									</li>
+
+							<li>
+
+											<a title="Page 2" href="	/iplayer/search?q=david+attenborough&page=2">
+
+							2						</a>
+
+									</li>
+
+							<li>
+
+											<a title="Page 3" href="	/iplayer/search?q=david+attenborough&page=3">
+
+							3						</a>
+
+									</li>
+
+							<li>
+
+											<a title="Page 4" href="	/iplayer/search?q=david+attenborough&page=4">
+
+							4						</a>
+
+									</li>
+
+					</ol>
+
+
+
+	<!-- Next page link -->
+
+					<a title="Next page" href="	/iplayer/search?q=david+attenborough&page=2">
+
+				Next			</a>
+
+		
+
+	</div>
+
+
+
+
+
+	<p class="result-count">
+
+				1-10		of 33 results	</p>
+
+
+
+	<ul class="result-list listview episodelist">
+
+										<li class="first">
+
+				<div class="list-cta">
+
+		
+
+						
+
+		<div id="result-p00y1hbb" class="episode-info ">
+
+			<h3 >
+
+									<a href="/iplayer/episode/p00y1hbb/Adventure_Zambezi_Livingstones_River/" title="Adventure: Zambezi: Livingstone's River">
+
+						<span class="episode-image cta-play">
+
+															<span>Play this episode</span>
+
+																				
+
+				
+
+							
+
+							<img src="http://ichef.bbci.co.uk/programmeimages/p01hz79m/p00y1hbb_120_68.jpg" width="120" height="68" alt="" />						</span>
+
+						
+
+						<span class="title">
+
+								Adventure - Zambezi<br /><span>3. Livingstone's River</span>						</span>
+
+															</a>
+
+				
+
+											</h3>
+
+							<p class="episode-synopsis">
+
+					David Attenborough retraces the steps of the Scottish explorer Dr Livingstone. (1965)
+
+									</p>
+
+			
+
+			<p class="additional">
+
+				BBC														<span>Series Catch-up</span>
+
+							</p>
+
+
+
+					</div>
+
+						
+
+						<ul class="ctas">
+
+        		<li class="cta-add-favourite"><a class="addfavourite pid-p00y1hbb tlc-p00y02bb" role="button" href="#" title="Add to favourites"><span>Add to favourites</span></a></li>
+
+	</ul>
+
+				
+
+				</div>
+
+
+
+				                                        
+
+                                		
+
+			</li>
+
+								<li >
+
+				<div class="list-cta">
+
+		
+
+						
+
+		<div id="result-p00y1h93" class="episode-info ">
+
+			<h3 >
+
+									<a href="/iplayer/episode/p00y1h93/Adventure_Zambezi_The_Ancient_Highway/" title="Adventure: Zambezi: The Ancient Highway">
+
+						<span class="episode-image cta-play">
+
+															<span>Play this episode</span>
+
+																				
+
+				
+
+							
+
+							<img src="http://ichef.bbci.co.uk/programmeimages/p01hz78x/p00y1h93_120_68.jpg" width="120" height="68" alt="" />						</span>
+
+						
+
+						<span class="title">
+
+								Adventure - Zambezi<br /><span>2. The Ancient Highway</span>						</span>
+
+															</a>
+
+				
+
+											</h3>
+
+							<p class="episode-synopsis">
+
+					David Attenborough comes across a stone fortress in an African village. (1965)
+
+									</p>
+
+			
+
+			<p class="additional">
+
+				BBC														<span>Series Catch-up</span>
+
+							</p>
+
+
+
+					</div>
+
+						
+
+						<ul class="ctas">
+
+        		<li class="cta-add-favourite"><a class="addfavourite pid-p00y1h93 tlc-p00y02bb" role="button" href="#" title="Add to favourites"><span>Add to favourites</span></a></li>
+
+	</ul>
+
+				
+
+				</div>
+
+
+
+				                                        
+
+                                		
+
+			</li>
+
+								<li >
+
+				<div class="list-cta">
+
+		
+
+						
+
+		<div id="result-p00y1h81" class="episode-info ">
+
+			<h3 >
+
+									<a href="/iplayer/episode/p00y1h81/Adventure_Zambezi_Lord_of_the_Land/" title="Adventure: Zambezi: Lord of the Land">
+
+						<span class="episode-image cta-play">
+
+															<span>Play this episode</span>
+
+																				
+
+				
+
+							
+
+							<img src="http://ichef.bbci.co.uk/programmeimages/p01hz77c/p00y1h81_120_68.jpg" width="120" height="68" alt="" />						</span>
+
+						
+
+						<span class="title">
+
+								Adventure - Zambezi<br /><span>1. Lord of the Land</span>						</span>
+
+															</a>
+
+				
+
+											</h3>
+
+							<p class="episode-synopsis">
+
+					David Attenborough follows the Zambezi from its source to the Indian Ocean. (1965)
+
+									</p>
+
+			
+
+			<p class="additional">
+
+				BBC														<span>Series Catch-up</span>
+
+							</p>
+
+
+
+					</div>
+
+						
+
+						<ul class="ctas">
+
+        		<li class="cta-add-favourite"><a class="addfavourite pid-p00y1h81 tlc-p00y02bb" role="button" href="#" title="Add to favourites"><span>Add to favourites</span></a></li>
+
+	</ul>
+
+				
+
+				</div>
+
+
+
+				                                        
+
+                                		
+
+			</li>
+
+								<li >
+
+				<div class="list-cta">
+
+		
+
+						
+
+		<div id="result-p00y1hdw" class="episode-info ">
+
+			<h3 >
+
+									<a href="/iplayer/episode/p00y1hdw/Adventure_Quest_under_Capricorn_Buffalo_Geese_and_Men/" title="Adventure: Quest under Capricorn: Buffalo, Geese and Men">
+
+						<span class="episode-image cta-play">
+
+															<span>Play this episode</span>
+
+																				
+
+				
+
+							
+
+							<img src="http://ichef.bbci.co.uk/programmeimages/p01hz7x9/p00y1hdw_120_68.jpg" width="120" height="68" alt="" />						</span>
+
+						
+
+						<span class="title">
+
+								Adventure - Quest under Capricorn<br /><span>3. Buffalo, Geese and Men</span>						</span>
+
+															</a>
+
+				
+
+											</h3>
+
+							<p class="episode-synopsis">
+
+					A journey through Northern Australia with David Attenborough. (1963)
+
+									</p>
+
+			
+
+			<p class="additional">
+
+				BBC														<span>Series Catch-up</span>
+
+							</p>
+
+
+
+					</div>
+
+						
+
+						<ul class="ctas">
+
+        		<li class="cta-add-favourite"><a class="addfavourite pid-p00y1hdw tlc-p00y02bb" role="button" href="#" title="Add to favourites"><span>Add to favourites</span></a></li>
+
+	</ul>
+
+				
+
+				</div>
+
+
+
+				                                        
+
+                                		
+
+			</li>
+
+								<li >
+
+				<div class="list-cta">
+
+		
+
+						
+
+		<div id="result-p00y207q" class="episode-info ">
+
+			<h3 >
+
+									<a href="/iplayer/episode/p00y207q/The_People_of_Paradise_The_Land_Divers_of_Pentecost/" title="The People of Paradise: The Land Divers of Pentecost">
+
+						<span class="episode-image cta-play">
+
+															<span>Play this episode</span>
+
+																				
+
+				
+
+							
+
+							<img src="http://ichef.bbci.co.uk/programmeimages/p01hz70y/p00y207q_120_68.jpg" width="120" height="68" alt="" />						</span>
+
+						
+
+						<span class="title">
+
+								The People of Paradise<br /><span>1. The Land Divers of Pentecost</span>						</span>
+
+															</a>
+
+				
+
+											</h3>
+
+							<p class="episode-synopsis">
+
+					David Attenborough sets off on his tour around the South West Pacific Islands. (1960)
+
+									</p>
+
+			
+
+			<p class="additional">
+
+				BBC														<span>Series Catch-up</span>
+
+							</p>
+
+
+
+					</div>
+
+						
+
+						<ul class="ctas">
+
+        		<li class="cta-add-favourite"><a class="addfavourite pid-p00y207q tlc-p00xjs70" role="button" href="#" title="Add to favourites"><span>Add to favourites</span></a></li>
+
+	</ul>
+
+				
+
+				</div>
+
+
+
+				                                        
+
+                                		
+
+			</li>
+
+								<li >
+
+				<div class="list-cta">
+
+		
+
+						
+
+		<div id="result-p00db26j" class="episode-info ">
+
+			<h3 >
+
+									<a href="/iplayer/episode/p00db26j/Zoo_Quest_Zoo_Quest_to_Madagascar_Episode_5/" title="Zoo Quest: Zoo Quest to Madagascar: Episode 5">
+
+						<span class="episode-image cta-play">
+
+															<span>Play this episode</span>
+
+																				
+
+				
+
+							
+
+							<img src="http://ichef.bbci.co.uk/programmeimages/p01hz772/p00db26j_120_68.jpg" width="120" height="68" alt="" />						</span>
+
+						
+
+						<span class="title">
+
+								Zoo Quest - Zoo Quest to Madagascar<br /><span>Episode 5</span>						</span>
+
+															</a>
+
+				
+
+											</h3>
+
+							<p class="episode-synopsis">
+
+					David Attenborough searches for one of the rarest animals of Madagascar, the indri. (1961)
+
+									</p>
+
+			
+
+			<p class="additional">
+
+																		<span>Series Catch-up</span>
+
+							</p>
+
+
+
+					</div>
+
+						
+
+						<ul class="ctas">
+
+        		<li class="cta-add-favourite"><a class="addfavourite pid-p00db26j tlc-p00db1jf" role="button" href="#" title="Add to favourites"><span>Add to favourites</span></a></li>
+
+	</ul>
+
+				
+
+				</div>
+
+
+
+				                                        
+
+                                		
+
+			</li>
+
+								<li >
+
+				<div class="list-cta">
+
+		
+
+						
+
+		<div id="result-p00db24v" class="episode-info ">
+
+			<h3 >
+
+									<a href="/iplayer/episode/p00db24v/Zoo_Quest_Zoo_Quest_to_Madagascar_Episode_1/" title="Zoo Quest: Zoo Quest to Madagascar: Episode 1">
+
+						<span class="episode-image cta-play">
+
+															<span>Play this episode</span>
+
+																				
+
+				
+
+							
+
+							<img src="http://ichef.bbci.co.uk/programmeimages/p01hz73r/p00db24v_120_68.jpg" width="120" height="68" alt="" />						</span>
+
+						
+
+						<span class="title">
+
+								Zoo Quest - Zoo Quest to Madagascar<br /><span>Episode 1</span>						</span>
+
+															</a>
+
+				
+
+											</h3>
+
+							<p class="episode-synopsis">
+
+					David Attenborough searches for the strange creatures that inhabit Madagascar. (1961)
+
+									</p>
+
+			
+
+			<p class="additional">
+
+																		<span>Series Catch-up</span>
+
+							</p>
+
+
+
+					</div>
+
+						
+
+						<ul class="ctas">
+
+        		<li class="cta-add-favourite"><a class="addfavourite pid-p00db24v tlc-p00db1jf" role="button" href="#" title="Add to favourites"><span>Add to favourites</span></a></li>
+
+	</ul>
+
+				
+
+				</div>
+
+
+
+				                                        
+
+                                		
+
+			</li>
+
+								<li >
+
+				<div class="list-cta">
+
+		
+
+						
+
+		<div id="result-p00y20lw" class="episode-info ">
+
+			<h3 >
+
+									<a href="/iplayer/episode/p00y20lw/The_People_of_Paradise_Canoes_and_Coconut_Crabs/" title="The People of Paradise: Canoes and Coconut Crabs">
+
+						<span class="episode-image cta-play">
+
+															<span>Play this episode</span>
+
+																				
+
+				
+
+							
+
+							<img src="http://ichef.bbci.co.uk/programmeimages/p01hz72t/p00y20lw_120_68.jpg" width="120" height="68" alt="" />						</span>
+
+						
+
+						<span class="title">
+
+								The People of Paradise<br /><span>5. Canoes and Coconut Crabs</span>						</span>
+
+															</a>
+
+				
+
+											</h3>
+
+							<p class="episode-synopsis">
+
+					David Attenborough retraces his search to find the rare Fijian double canoe. (1960)
+
+									</p>
+
+			
+
+			<p class="additional">
+
+				BBC														<span>Series Catch-up</span>
+
+							</p>
+
+
+
+					</div>
+
+						
+
+						<ul class="ctas">
+
+        		<li class="cta-add-favourite"><a class="addfavourite pid-p00y20lw tlc-p00xjs70" role="button" href="#" title="Add to favourites"><span>Add to favourites</span></a></li>
+
+	</ul>
+
+				
+
+				</div>
+
+
+
+				                                        
+
+                                		
+
+			</li>
+
+								<li >
+
+				<div class="list-cta">
+
+		
+
+						
+
+		<div id="result-p00y207v" class="episode-info ">
+
+			<h3 >
+
+									<a href="/iplayer/episode/p00y207v/The_People_of_Paradise_The_Firewalkers_of_Fiji/" title="The People of Paradise: The Firewalkers of Fiji">
+
+						<span class="episode-image cta-play">
+
+															<span>Play this episode</span>
+
+																				
+
+				
+
+							
+
+							<img src="http://ichef.bbci.co.uk/programmeimages/p01hz7j1/p00y207v_120_68.jpg" width="120" height="68" alt="" />						</span>
+
+						
+
+						<span class="title">
+
+								The People of Paradise<br /><span>3. The Firewalkers of Fiji</span>						</span>
+
+															</a>
+
+				
+
+											</h3>
+
+							<p class="episode-synopsis">
+
+					The impressive Fijian firewalks captivate David Attenborough. (1960)
+
+									</p>
+
+			
+
+			<p class="additional">
+
+				BBC														<span>Series Catch-up</span>
+
+							</p>
+
+
+
+					</div>
+
+						
+
+						<ul class="ctas">
+
+        		<li class="cta-add-favourite"><a class="addfavourite pid-p00y207v tlc-p00xjs70" role="button" href="#" title="Add to favourites"><span>Add to favourites</span></a></li>
+
+	</ul>
+
+				
+
+				</div>
+
+
+
+				                                        
+
+                                		
+
+			</li>
+
+								<li >
+
+				<div class="list-cta">
+
+		
+
+						
+
+		<div id="result-p00db25j" class="episode-info ">
+
+			<h3 >
+
+									<a href="/iplayer/episode/p00db25j/Zoo_Quest_Zoo_Quest_to_Madagascar_Episode_2/" title="Zoo Quest: Zoo Quest to Madagascar: Episode 2">
+
+						<span class="episode-image cta-play">
+
+															<span>Play this episode</span>
+
+																				
+
+				
+
+							
+
+							<img src="http://ichef.bbci.co.uk/programmeimages/p01hz73t/p00db25j_120_68.jpg" width="120" height="68" alt="" />						</span>
+
+						
+
+						<span class="title">
+
+								Zoo Quest - Zoo Quest to Madagascar<br /><span>Episode 2</span>						</span>
+
+															</a>
+
+				
+
+											</h3>
+
+							<p class="episode-synopsis">
+
+					David Attenborough encounters fish that walk, giant chameleons and the coelacanth. (1961)
+
+									</p>
+
+			
+
+			<p class="additional">
+
+																		<span>Series Catch-up</span>
+
+							</p>
+
+
+
+					</div>
+
+						
+
+						<ul class="ctas">
+
+        		<li class="cta-add-favourite"><a class="addfavourite pid-p00db25j tlc-p00db1jf" role="button" href="#" title="Add to favourites"><span>Add to favourites</span></a></li>
+
+	</ul>
+
+				
+
+				</div>
+
+
+
+				                                        
+
+                                		
+
+			</li>
+
+			</ul>
+
+
+
+		
+
+	<div class="pagination-control">
+
+
+
+		<!-- Previous page link -->
+
+		
+
+		<ol>
+
+			<!-- Numbered page links -->
+
+							<li>
+
+											<span>1</span>
+
+									</li>
+
+							<li>
+
+											<a title="Page 2" href="	/iplayer/search?q=david+attenborough&page=2">
+
+							2						</a>
+
+									</li>
+
+							<li>
+
+											<a title="Page 3" href="	/iplayer/search?q=david+attenborough&page=3">
+
+							3						</a>
+
+									</li>
+
+							<li>
+
+											<a title="Page 4" href="	/iplayer/search?q=david+attenborough&page=4">
+
+							4						</a>
+
+									</li>
+
+					</ol>
+
+
+
+	<!-- Next page link -->
+
+					<a title="Next page" href="	/iplayer/search?q=david+attenborough&page=2">
+
+				Next			</a>
+
+		
+
+	</div>
+
+
+
+
+
+	<p class="result-count">
+
+				1-10		of 33 results	</p>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+	
+
+	</div>
+
+</div>    </div>
+
+</div>
+
+
+
+<div id="bip-footer">
+
+	<ul>
+
+		
+
+				
+
+				
+
+					<li class="language-link divider">
+
+				                            
+
+                            
+
+                            
+
+				<a id="cy" href="/iplayer/cy/search?q=david%20attenborough" title="This page in Welsh">
+
+					Cymraeg				</a>
+
+			</li>
+
+					<li class="language-link">
+
+				                            
+
+                            
+
+                            
+
+				<a id="gd" href="/iplayer/gd/search?q=david%20attenborough" title="This page in Gaelic">
+
+					Gàidhlig				</a>
+
+			</li>
+
+		
+
+		<li class="help">
+
+			<a href="http://iplayerhelp.external.bbc.co.uk/help/">BBC iPlayer Help</a>
+
+		</li>
+
+                        
+
+                <li class="newsletter divider">
+
+                    <a href="https://iplayerhelp.external.bbc.co.uk/templates/bbciplayer/subscribe/emailPage">Newsletter</a>
+
+                </li>
+
+
+
+	</ul>
+
+</div>    </div>   <!--[if IE 6]> <div id="blq-ie6-upgrade"> <p> <span>You're using the Internet Explorer 6 browser to view the BBC website. Our site will work much better if you change to a more modern browser. It's free, quick and easy.</span> <a href="http://www.browserchoice.eu/">Find out more <span>about upgrading your browser</span> here&hellip;</a> </p> </div> <![endif]-->  <div id="blq-foot" lang="en-GB" class="blq-rst blq-clearfix blq-foot-black"> <div id="blq-footlinks"> <h2 class="blq-hide">BBC links</h2>       <ul>                    <li class="blq-footlinks-row"> <ul class="blq-footlinks-row-list"> <li><a href="http://m.bbc.co.uk/" id="blq-footer-mobile">Mobile site</a></li><li><a href="http://www.bbc.co.uk/terms/">Terms of Use</a></li><li><a href="http://www.bbc.co.uk/aboutthebbc/">About the BBC</a></li> </ul> </li>                <li class="blq-footlinks-row"> <ul class="blq-footlinks-row-list"> <li><a href="http://www.bbc.co.uk/privacy/">Privacy</a></li><li><a href="http://www.bbc.co.uk/accessibility/">Accessibility Help</a></li> </ul> </li>                <li class="blq-footlinks-row"> <ul class="blq-footlinks-row-list"> <li><a href="http://www.bbc.co.uk/privacy/bbc-cookies-policy.shtml">Cookies</a></li><li><a href="http://www.bbc.co.uk/contact/">Contact the BBC</a></li> </ul> </li>           <li class="blq-footlinks-row"> <ul class="blq-footlinks-row-list"> <li><a href="http://www.bbc.co.uk/guidance/">Parental Guidance</a></li> </ul> </li>             </ul> <script type="text/javascript">/*<![CDATA[*/ (function() { var mLink = document.getElementById('blq-footer-mobile'), stick = function() { var d = new Date (); d.setYear(d.getFullYear() + 1); d = d.toUTCString(); window.bbccookies.set('ckps_d=m;domain=.bbc.co.uk;path=/;expires=' + d ); window.bbccookies.set('ckps_d=m;domain=.bbc.com;path=/;expires=' + d ); }; if (mLink) {  if (mLink.addEventListener) { mLink.addEventListener('click', stick, false); } else if (mLink.attachEvent) { mLink.attachEvent('onclick', stick); } } })(); /*]]>*/</script>  </div>  <div id="blq-foot-blocks" class="blq-footer-image-light"><img src="http://static.bbci.co.uk/frameworks/barlesque/2.54.3/desktop/3.5/img/blocks/light.png" width="84" height="24" alt="BBC" /></div>  <p id="blq-disclaim"><span id="blq-copy">BBC &copy; 2013</span> <a href="http://www.bbc.co.uk/help/web/links/">The BBC is not responsible for the content of external sites. Read more.</a></p> <div id="blq-obit"><p><strong>This page is best viewed in an up-to-date web browser with style sheets (CSS) enabled. While you will be able to view the content of this page in your current browser, you will not be able to get the full visual experience. Please consider upgrading your browser software or enabling style sheets (CSS) if you are able to do so.</strong></p></div> </div> </div>  </div> </div>  <script type="text/javascript"> if (typeof require !== 'undefined') { require(['istats-1'], function(istats){ istats.track('external', { region: document.getElementById('blq-main') }); istats.track('download', { region: document.getElementById('blq-main') }); }); } </script>  <script type="text/html" id="blq-panel-template-promo"><![CDATA[ <div id="blq-panel-promo" class="blq-masthead-container"></div> ]]></script> <script type="text/html" id="blq-panel-template-more"><![CDATA[ <div id="blq-panel-more" class="blq-masthead-container  blq-clearfix" lang="en-GB" dir="ltr"> <div class="blq-panel-container panel-paneltype-more"> <div class="panel-header"> <h2> <a href="http://www.bbc.co.uk/a-z/">  More&hellip;  </a> </h2>  <a href="http://www.bbc.co.uk/a-z/" class="panel-header-links panel-header-link">Full A-Z<span class="blq-hide"> of BBC sites</span></a>  </div> <div class="panel-component panel-links">       <ul>   <li> <a href="http://www.bbc.co.uk/cbbc/"  >CBBC</a> </li>    <li> <a href="http://www.bbc.co.uk/cbeebies/"  >CBeebies</a> </li>    <li> <a href="http://www.bbc.co.uk/comedy/"  >Comedy</a> </li>   </ul>  <ul>   <li> <a href="http://www.bbc.co.uk/food/"  >Food</a> </li>    <li> <a href="http://www.bbc.co.uk/history/"  >History</a> </li>    <li> <a href="http://www.bbc.co.uk/learning/"  >Learning</a> </li>   </ul>  <ul>   <li> <a href="http://www.bbc.co.uk/music/"  >Music</a> </li>    <li> <a href="http://www.bbc.co.uk/science/"  >Science</a> </li>    <li> <a href="http://www.bbc.co.uk/nature/"  >Nature</a> </li>   </ul>  <ul>   <li> <a href="http://www.bbc.co.uk/local/"  >Local</a> </li>    <li> <a href="http://www.bbc.co.uk/travelnews/"  >Travel News</a> </li>   </ul>   </div> </div> ]]></script>            <script type="text/javascript">
+
+
+
+    require({
+
+        baseUrl: 'http://static.bbci.co.uk/iplayer/3.68.1/script/',
+
+        paths: {
+
+            iplayer: 'build/iplayer',
+
+            pal: '/iplayer',
+
+            templates: '/iplayer-templates',
+
+            lib: 'build/lib',
+
+            require: 'lib/require',
+
+            core: 'http://static.bbci.co.uk/iplayer/3.68.1/core/script',
+
+            datasources: 'http://static.bbci.co.uk/iplayer/3.68.1/core/script/datasources',
+
+            empembed: 'http://www.bbc.co.uk/emp/releases/iplayer/revisions/617463_618125_4/embed',
+
+            impembed: 'http://static.bbci.co.uk/imp/1.14.2/script/embed',
+
+            i18n: 'lib/require/i18n',
+
+            text: 'lib/require/text',
+
+            order: 'lib/require/order'
+
+        },
+
+        locale: 'en-gb'
+
+    }, ['build/targets/bootstrap-live', appJSVersion], function () {
+
+        require([
+
+            'iplayer/begin',
+
+            'iplayer/models/config',
+
+            'pal/config',
+
+            'iplayer/models/episoderegistry',
+
+            'iplayer/models/gatekeeper',
+
+            'iplayer/utils/utils',
+
+            'iplayer/utils/debugging',
+
+            'iplayer/events',
+
+            'iplayer/net',
+
+            'iplayer/utils/EventBinder',
+
+            'iplayer/utils/Queue',
+
+            'iplayer/models/cookie',
+
+            'iplayer/models/useragent',
+
+            // bootstrap the basic application as soon as possible
+
+            'iplayer/end',
+
+            'lib/mustache',
+
+            'istats-1'
+
+        ], function (a,b,c,episodeRegistry, gatekeeper) {
+
+            iplayer.config.locale = 'en-gb';
+
+            iplayer.config.language = 'en';
+
+            iplayer.config.countryIsUK =  true;
+
+            iplayer.config.showFavouritesCarousel = true;
+
+
+
+            iplayer.servicetype = {
+
+                master: 'tv',
+
+                current: 'tv'
+
+            };
+
+
+
+            // populate the episode registry
+
+                        episodeRegistry.addData(
+
+                {"p00y1hbb":{"my_series_url":"\/iplayer\/series\/p00y046t\/Adventure_Zambezi\/","is_embargoed":"0","image_template_url":"http:\/\/ichef.bbci.co.uk\/images\/ic\/$recipe\/p01hz79m.jpg","my_mediaselector_json_url":"http:\/\/www.bbc.co.uk\/mediaselector\/4\/mtis\/all\/p00y1hbc","play_version_has_competition_warning":"0","is_embeddable":"0","original_title":"Livingstone's River","stacked_container_id":"","complete_title":"Adventure: Zambezi: Livingstone's River","is_simulcast":"0","subseries_title":"","is_downloadable_sd":"0","is_repeat":"0","actual_start":"2012-12-03T12:12:04+0000","masterbrand_title":"BBC","title":"3. Livingstone's River","is_downloadable_hd":"0","is_available_mediaset_pc_hd":"0","partner":"s0000001","is_delayed":"0","available_sibling_count":"2","my_short_url":"bbc.co.uk\/i\/p00y1hbb\/","is_film":"0","contextual_family_tree":"b-s-e","is_available_mediaset_pc_sd":"1","passionsite_link":"http:\/\/www.bbc.co.uk\/programmes\/p00y02bb\/microsite","media_type":"video","passionsite_title":"Adventure","categories":[{"short_name":"Travel","path":"lifestyle_and_leisure\/travel","parent_id":"9300054","level":"2","text":"Lifestyle & Leisure - Travel","updated":"","type":"category","id":"9200060","title":"Travel","child_categories":[]},{"short_name":"Lifestyle & Leisure","path":"lifestyle_and_leisure","parent_id":"","level":"1","text":"Lifestyle & Leisure","updated":"","type":"category","id":"9300054","title":"Lifestyle & Leisure","child_categories":[]}],"series_id":"p00y046t","toplevel_container_id":"p00y02bb","available_until":"2038-01-01T00:00:00+0000","my_image_base_url":"http:\/\/ichef.bbci.co.uk\/programmeimages\/p01hz79m\/","is_available_mediaset_stb_sd":"0","masterbrand":"bbc_webonly","play_version_id":"p00y1hbc","tag_schemes":"","is_stacked":"1","parent_id":"p00y046t","my_playlist_url":"\/iplayer\/playlist\/p00y1hbb\/","toplevel_container_title":"Adventure","synopsis":"First transmitted in 1965, David Attenborough retraces the steps of the famous Scottish explorer Dr David Livingstone in the final part of his African adventure.","has_guidance":"0","ondemand_start":"2012-10-29T15:00:00+0000","my_alternate_url":"","updated":"2013-10-02T20:45:45+0000","id":"p00y1hbb","is_free":"1","is_clip":"0","brand_title":"Adventure","duration":"2369","subseries_id":"","hierarchical_title":"Livingstone's River","type":"episode","brand_id":"p00y02bb","my_url":"\/iplayer\/episode\/p00y1hbb\/Adventure_Zambezi_Livingstones_River\/","original_broadcast_datetime":"1965-08-23T18:20:00+0000","position":"3","series_title":"Zambezi","is_available_mediaset_stb_hd":"0","availability":"CURRENT","image_pid":"p01hz79m","is_downloadable":"0","short_synopsis":"David Attenborough retraces the steps of the Scottish explorer Dr Livingstone. (1965)","is_hd_only":"0","my_mediaselector_xml_url":"http:\/\/www.bbc.co.uk\/mediaselector\/4\/mtis\/all\/p00y1hbc","mediaQuality":"sd","versionType":""},"p00y1h93":{"my_series_url":"\/iplayer\/series\/p00y046t\/Adventure_Zambezi\/","is_embargoed":"0","image_template_url":"http:\/\/ichef.bbci.co.uk\/images\/ic\/$recipe\/p01hz78x.jpg","my_mediaselector_json_url":"http:\/\/www.bbc.co.uk\/mediaselector\/4\/mtis\/all\/p00y1h94","play_version_has_competition_warning":"0","is_embeddable":"0","original_title":"The Ancient Highway","stacked_container_id":"","complete_title":"Adventure: Zambezi: The Ancient Highway","is_simulcast":"0","subseries_title":"","is_downloadable_sd":"0","is_repeat":"0","actual_start":"2012-12-03T11:00:11+0000","masterbrand_title":"BBC","title":"2. The Ancient Highway","is_downloadable_hd":"0","is_available_mediaset_pc_hd":"0","partner":"s0000001","is_delayed":"0","available_sibling_count":"2","my_short_url":"bbc.co.uk\/i\/p00y1h93\/","is_film":"0","contextual_family_tree":"b-s-e","is_available_mediaset_pc_sd":"1","passionsite_link":"http:\/\/www.bbc.co.uk\/programmes\/p00y02bb\/microsite","media_type":"video","passionsite_title":"Adventure","categories":[{"short_name":"Travel","path":"lifestyle_and_leisure\/travel","parent_id":"9300054","level":"2","text":"Lifestyle & Leisure - Travel","updated":"","type":"category","id":"9200060","title":"Travel","child_categories":[]},{"short_name":"Lifestyle & Leisure","path":"lifestyle_and_leisure","parent_id":"","level":"1","text":"Lifestyle & Leisure","updated":"","type":"category","id":"9300054","title":"Lifestyle & Leisure","child_categories":[]}],"series_id":"p00y046t","toplevel_container_id":"p00y02bb","available_until":"2038-01-01T00:00:00+0000","my_image_base_url":"http:\/\/ichef.bbci.co.uk\/programmeimages\/p01hz78x\/","is_available_mediaset_stb_sd":"0","masterbrand":"bbc_webonly","play_version_id":"p00y1h94","tag_schemes":"","is_stacked":"1","parent_id":"p00y046t","my_playlist_url":"\/iplayer\/playlist\/p00y1h93\/","toplevel_container_title":"Adventure","synopsis":"First transmitted in 1965, David Attenborough comes across a stone fortress in an African village, believed to have been built 400 years ago by Portuguese explorers.","has_guidance":"0","ondemand_start":"2012-10-29T15:00:00+0000","my_alternate_url":"","updated":"2013-10-02T20:45:01+0000","id":"p00y1h93","is_free":"1","is_clip":"0","brand_title":"Adventure","duration":"2384","subseries_id":"","hierarchical_title":"The Ancient Highway","type":"episode","brand_id":"p00y02bb","my_url":"\/iplayer\/episode\/p00y1h93\/Adventure_Zambezi_The_Ancient_Highway\/","original_broadcast_datetime":"1965-08-16T18:20:00+0000","position":"2","series_title":"Zambezi","is_available_mediaset_stb_hd":"0","availability":"CURRENT","image_pid":"p01hz78x","is_downloadable":"0","short_synopsis":"David Attenborough comes across a stone fortress in an African village. (1965)","is_hd_only":"0","my_mediaselector_xml_url":"http:\/\/www.bbc.co.uk\/mediaselector\/4\/mtis\/all\/p00y1h94","mediaQuality":"sd","versionType":""},"p00y1h81":{"my_series_url":"\/iplayer\/series\/p00y046t\/Adventure_Zambezi\/","is_embargoed":"0","image_template_url":"http:\/\/ichef.bbci.co.uk\/images\/ic\/$recipe\/p01hz77c.jpg","my_mediaselector_json_url":"http:\/\/www.bbc.co.uk\/mediaselector\/4\/mtis\/all\/p00y1h82","play_version_has_competition_warning":"0","is_embeddable":"0","original_title":"Lord of the Land","stacked_container_id":"","complete_title":"Adventure: Zambezi: Lord of the Land","is_simulcast":"0","subseries_title":"","is_downloadable_sd":"0","is_repeat":"0","actual_start":"2012-12-03T10:37:47+0000","masterbrand_title":"BBC","title":"1. Lord of the Land","is_downloadable_hd":"0","is_available_mediaset_pc_hd":"0","partner":"s0000001","is_delayed":"0","available_sibling_count":"2","my_short_url":"bbc.co.uk\/i\/p00y1h81\/","is_film":"0","contextual_family_tree":"b-s-e","is_available_mediaset_pc_sd":"1","passionsite_link":"http:\/\/www.bbc.co.uk\/programmes\/p00y02bb\/microsite","media_type":"video","passionsite_title":"Adventure","categories":[{"short_name":"Travel","path":"lifestyle_and_leisure\/travel","parent_id":"9300054","level":"2","text":"Lifestyle & Leisure - Travel","updated":"","type":"category","id":"9200060","title":"Travel","child_categories":[]},{"short_name":"Lifestyle & Leisure","path":"lifestyle_and_leisure","parent_id":"","level":"1","text":"Lifestyle & Leisure","updated":"","type":"category","id":"9300054","title":"Lifestyle & Leisure","child_categories":[]}],"series_id":"p00y046t","toplevel_container_id":"p00y02bb","available_until":"2038-01-01T00:00:00+0000","my_image_base_url":"http:\/\/ichef.bbci.co.uk\/programmeimages\/p01hz77c\/","is_available_mediaset_stb_sd":"0","masterbrand":"bbc_webonly","play_version_id":"p00y1h82","tag_schemes":"","is_stacked":"1","parent_id":"p00y046t","my_playlist_url":"\/iplayer\/playlist\/p00y1h81\/","toplevel_container_title":"Adventure","synopsis":"First transmitted in 1965, David Attenborough follows the River Zambezi from its source in the centre of Africa, 2,000 miles to the Indian Ocean. ","has_guidance":"0","ondemand_start":"2012-10-29T11:00:00+0000","my_alternate_url":"","updated":"2013-10-02T20:43:48+0000","id":"p00y1h81","is_free":"1","is_clip":"0","brand_title":"Adventure","duration":"2374","subseries_id":"","hierarchical_title":"Lord of the Land","type":"episode","brand_id":"p00y02bb","my_url":"\/iplayer\/episode\/p00y1h81\/Adventure_Zambezi_Lord_of_the_Land\/","original_broadcast_datetime":"1965-08-09T18:20:00+0000","position":"1","series_title":"Zambezi","is_available_mediaset_stb_hd":"0","availability":"CURRENT","image_pid":"p01hz77c","is_downloadable":"0","short_synopsis":"David Attenborough follows the Zambezi from its source to the Indian Ocean. (1965)","is_hd_only":"0","my_mediaselector_xml_url":"http:\/\/www.bbc.co.uk\/mediaselector\/4\/mtis\/all\/p00y1h82","mediaQuality":"sd","versionType":""},"p00y1hdw":{"my_series_url":"\/iplayer\/series\/p00y04hk\/Adventure_Quest_under_Capricorn\/","is_embargoed":"0","image_template_url":"http:\/\/ichef.bbci.co.uk\/images\/ic\/$recipe\/p01hz7x9.jpg","my_mediaselector_json_url":"http:\/\/www.bbc.co.uk\/mediaselector\/4\/mtis\/all\/p00y1hdx","play_version_has_competition_warning":"0","is_embeddable":"0","original_title":"Buffalo, Geese and Men","stacked_container_id":"","complete_title":"Adventure: Quest under Capricorn: Buffalo, Geese and Men","is_simulcast":"0","subseries_title":"","is_downloadable_sd":"0","is_repeat":"0","actual_start":"2012-11-30T16:22:57+0000","masterbrand_title":"BBC","title":"3. Buffalo, Geese and Men","is_downloadable_hd":"0","is_available_mediaset_pc_hd":"0","partner":"s0000001","is_delayed":"0","available_sibling_count":"5","my_short_url":"bbc.co.uk\/i\/p00y1hdw\/","is_film":"0","contextual_family_tree":"b-s-e","is_available_mediaset_pc_sd":"1","passionsite_link":"http:\/\/www.bbc.co.uk\/programmes\/p00y02bb\/microsite","media_type":"video","passionsite_title":"Adventure","categories":[{"short_name":"Travel","path":"lifestyle_and_leisure\/travel","parent_id":"9300054","level":"2","text":"Lifestyle & Leisure - Travel","updated":"","type":"category","id":"9200060","title":"Travel","child_categories":[]},{"short_name":"Lifestyle & Leisure","path":"lifestyle_and_leisure","parent_id":"","level":"1","text":"Lifestyle & Leisure","updated":"","type":"category","id":"9300054","title":"Lifestyle & Leisure","child_categories":[]}],"series_id":"p00y04hk","toplevel_container_id":"p00y02bb","available_until":"2038-01-01T00:00:00+0000","my_image_base_url":"http:\/\/ichef.bbci.co.uk\/programmeimages\/p01hz7x9\/","is_available_mediaset_stb_sd":"0","masterbrand":"bbc_webonly","play_version_id":"p00y1hdx","tag_schemes":"","is_stacked":"1","parent_id":"p00y04hk","my_playlist_url":"\/iplayer\/playlist\/p00y1hdw\/","toplevel_container_title":"Adventure","synopsis":"First transmitted in 1963, David Attenborough continues his journey through Australia's Northern Australia. He looks at the hunting of wildlife such as geese and water buffalo.","has_guidance":"0","ondemand_start":"2012-10-29T15:00:00+0000","my_alternate_url":"","updated":"2013-10-02T20:59:25+0000","id":"p00y1hdw","is_free":"1","is_clip":"0","brand_title":"Adventure","duration":"1756","subseries_id":"","hierarchical_title":"Buffalo, Geese and Men","type":"episode","brand_id":"p00y02bb","my_url":"\/iplayer\/episode\/p00y1hdw\/Adventure_Quest_under_Capricorn_Buffalo_Geese_and_Men\/","original_broadcast_datetime":"1963-05-10T18:30:00+0000","position":"3","series_title":"Quest under Capricorn","is_available_mediaset_stb_hd":"0","availability":"CURRENT","image_pid":"p01hz7x9","is_downloadable":"0","short_synopsis":"A journey through Northern Australia with David Attenborough. (1963)","is_hd_only":"0","my_mediaselector_xml_url":"http:\/\/www.bbc.co.uk\/mediaselector\/4\/mtis\/all\/p00y1hdx","mediaQuality":"sd","versionType":""},"p00y207q":{"my_series_url":"\/iplayer\/series\/p00xjs70\/The_People_of_Paradise\/","is_embargoed":"0","image_template_url":"http:\/\/ichef.bbci.co.uk\/images\/ic\/$recipe\/p01hz70y.jpg","my_mediaselector_json_url":"http:\/\/www.bbc.co.uk\/mediaselector\/4\/mtis\/all\/p00y207r","play_version_has_competition_warning":"0","is_embeddable":"0","original_title":"The Land Divers of Pentecost","stacked_container_id":"","complete_title":"The People of Paradise: The Land Divers of Pentecost","is_simulcast":"0","subseries_title":"","is_downloadable_sd":"0","is_repeat":"0","actual_start":"2012-12-07T12:22:30+0000","masterbrand_title":"BBC","title":"1. The Land Divers of Pentecost","is_downloadable_hd":"0","is_available_mediaset_pc_hd":"0","partner":"s0000001","is_delayed":"0","available_sibling_count":"4","my_short_url":"bbc.co.uk\/i\/p00y207q\/","is_film":"0","contextual_family_tree":"s-e","is_available_mediaset_pc_sd":"1","passionsite_link":"http:\/\/www.bbc.co.uk\/programmes\/p00xjs70\/microsite","media_type":"video","passionsite_title":"The People of Paradise","categories":[{"short_name":"Travel","path":"lifestyle_and_leisure\/travel","parent_id":"9300054","level":"2","text":"Lifestyle & Leisure - Travel","updated":"","type":"category","id":"9200060","title":"Travel","child_categories":[]},{"short_name":"Lifestyle & Leisure","path":"lifestyle_and_leisure","parent_id":"","level":"1","text":"Lifestyle & Leisure","updated":"","type":"category","id":"9300054","title":"Lifestyle & Leisure","child_categories":[]}],"series_id":"p00xjs70","toplevel_container_id":"p00xjs70","available_until":"2038-01-01T00:00:00+0000","my_image_base_url":"http:\/\/ichef.bbci.co.uk\/programmeimages\/p01hz70y\/","is_available_mediaset_stb_sd":"0","masterbrand":"bbc_webonly","play_version_id":"p00y207r","tag_schemes":"","is_stacked":"1","parent_id":"p00xjs70","my_playlist_url":"\/iplayer\/playlist\/p00y207q\/","toplevel_container_title":"The People of Paradise","synopsis":"First transmitted in 1960, David Attenborough marvels at the dry land diving custom performed by male islanders during his expedition of the South West Pacific Islands.","has_guidance":"0","ondemand_start":"2012-10-29T11:00:00+0000","my_alternate_url":"","updated":"2013-10-02T20:39:18+0000","id":"p00y207q","is_free":"1","is_clip":"0","brand_title":"","duration":"1808","subseries_id":"","hierarchical_title":"The Land Divers of Pentecost","type":"episode","brand_id":"","my_url":"\/iplayer\/episode\/p00y207q\/The_People_of_Paradise_The_Land_Divers_of_Pentecost\/","original_broadcast_datetime":"1960-04-21T19:30:00+0000","position":"1","series_title":"The People of Paradise","is_available_mediaset_stb_hd":"0","availability":"CURRENT","image_pid":"p01hz70y","is_downloadable":"0","short_synopsis":"David Attenborough sets off on his tour around the South West Pacific Islands. (1960)","is_hd_only":"0","my_mediaselector_xml_url":"http:\/\/www.bbc.co.uk\/mediaselector\/4\/mtis\/all\/p00y207r","mediaQuality":"sd","versionType":""},"p00db26j":{"my_series_url":"\/iplayer\/series\/p00db1jx\/Zoo_Quest_Zoo_Quest_to_Madagascar\/","is_embargoed":"0","image_template_url":"http:\/\/ichef.bbci.co.uk\/images\/ic\/$recipe\/p01hz772.jpg","my_mediaselector_json_url":"http:\/\/www.bbc.co.uk\/mediaselector\/4\/mtis\/all\/p00db26k","play_version_has_competition_warning":"0","is_embeddable":"0","original_title":"Episode 5","stacked_container_id":"","complete_title":"Zoo Quest: Zoo Quest to Madagascar: Episode 5","is_simulcast":"0","subseries_title":"","is_downloadable_sd":"0","is_repeat":"0","actual_start":"2012-12-04T11:23:30+0000","masterbrand_title":"","title":"Episode 5","is_downloadable_hd":"0","is_available_mediaset_pc_hd":"0","partner":"s0000001","is_delayed":"0","available_sibling_count":"4","my_short_url":"bbc.co.uk\/i\/p00db26j\/","is_film":"0","contextual_family_tree":"b-s-e","is_available_mediaset_pc_sd":"1","passionsite_link":"http:\/\/www.bbc.co.uk\/programmes\/p00db1jf\/microsite","media_type":"video","passionsite_title":"Zoo Quest","categories":[{"short_name":"Factual","path":"factual","parent_id":"","level":"1","text":"Factual","updated":"","type":"category","id":"9100005","title":"Factual","child_categories":[]},{"short_name":"Science & Nature","path":"factual\/science_and_nature","parent_id":"9100005","level":"2","text":"Factual - Science & Nature","updated":"","type":"category","id":"9200059","title":"Science & Nature","child_categories":[]},{"short_name":"Nature & Environment","path":"science_and_nature\/nature_and_environment","parent_id":"9200059","level":"3","text":"Factual - Science & Nature - Nature & Environment","updated":"","type":"category","id":"9300052","title":"Nature & Environment","child_categories":[]}],"series_id":"p00db1jx","toplevel_container_id":"p00db1jf","available_until":"2038-01-01T00:00:00+0000","my_image_base_url":"http:\/\/ichef.bbci.co.uk\/programmeimages\/p01hz772\/","is_available_mediaset_stb_sd":"0","masterbrand":"","play_version_id":"p00db26k","tag_schemes":"","is_stacked":"1","parent_id":"p00db1jx","my_playlist_url":"\/iplayer\/playlist\/p00db26j\/","toplevel_container_title":"Zoo Quest","synopsis":"First transmitted in 1961, David Attenborough searches for one of the rarest animals of Madagascar, the indri - the largest of all the lemurs.","has_guidance":"0","ondemand_start":"2012-10-29T15:00:00+0000","my_alternate_url":"","updated":"2013-10-02T20:43:47+0000","id":"p00db26j","is_free":"1","is_clip":"0","brand_title":"Zoo Quest","duration":"1752","subseries_id":"","hierarchical_title":"Episode 5","type":"episode","brand_id":"p00db1jf","my_url":"\/iplayer\/episode\/p00db26j\/Zoo_Quest_Zoo_Quest_to_Madagascar_Episode_5\/","original_broadcast_datetime":"1961-06-30T19:25:00+0000","position":"5","series_title":"Zoo Quest to Madagascar","is_available_mediaset_stb_hd":"0","availability":"CURRENT","image_pid":"p01hz772","is_downloadable":"0","short_synopsis":"David Attenborough searches for one of the rarest animals of Madagascar, the indri. (1961)","is_hd_only":"0","my_mediaselector_xml_url":"http:\/\/www.bbc.co.uk\/mediaselector\/4\/mtis\/all\/p00db26k","mediaQuality":"sd","versionType":""},"p00db24v":{"my_series_url":"\/iplayer\/series\/p00db1jx\/Zoo_Quest_Zoo_Quest_to_Madagascar\/","is_embargoed":"0","image_template_url":"http:\/\/ichef.bbci.co.uk\/images\/ic\/$recipe\/p01hz73r.jpg","my_mediaselector_json_url":"http:\/\/www.bbc.co.uk\/mediaselector\/4\/mtis\/all\/p00db24w","play_version_has_competition_warning":"0","is_embeddable":"0","original_title":"Episode 1","stacked_container_id":"","complete_title":"Zoo Quest: Zoo Quest to Madagascar: Episode 1","is_simulcast":"0","subseries_title":"","is_downloadable_sd":"0","is_repeat":"0","actual_start":"2012-12-03T17:41:28+0000","masterbrand_title":"","title":"Episode 1","is_downloadable_hd":"0","is_available_mediaset_pc_hd":"0","partner":"s0000001","is_delayed":"0","available_sibling_count":"4","my_short_url":"bbc.co.uk\/i\/p00db24v\/","is_film":"0","contextual_family_tree":"b-s-e","is_available_mediaset_pc_sd":"1","passionsite_link":"http:\/\/www.bbc.co.uk\/programmes\/p00db1jf\/microsite","media_type":"video","passionsite_title":"Zoo Quest","categories":[{"short_name":"Factual","path":"factual","parent_id":"","level":"1","text":"Factual","updated":"","type":"category","id":"9100005","title":"Factual","child_categories":[]},{"short_name":"Science & Nature","path":"factual\/science_and_nature","parent_id":"9100005","level":"2","text":"Factual - Science & Nature","updated":"","type":"category","id":"9200059","title":"Science & Nature","child_categories":[]},{"short_name":"Nature & Environment","path":"science_and_nature\/nature_and_environment","parent_id":"9200059","level":"3","text":"Factual - Science & Nature - Nature & Environment","updated":"","type":"category","id":"9300052","title":"Nature & Environment","child_categories":[]}],"series_id":"p00db1jx","toplevel_container_id":"p00db1jf","available_until":"2038-01-01T00:00:00+0000","my_image_base_url":"http:\/\/ichef.bbci.co.uk\/programmeimages\/p01hz73r\/","is_available_mediaset_stb_sd":"0","masterbrand":"","play_version_id":"p00db24w","tag_schemes":"","is_stacked":"1","parent_id":"p00db1jx","my_playlist_url":"\/iplayer\/playlist\/p00db24v\/","toplevel_container_title":"Zoo Quest","synopsis":"First transmitted in 1961, David Attenborough searches for the strange creatures that inhabit Madagascar. Is the gigantic bird, the rukh or roc, a creature of myth?","has_guidance":"0","ondemand_start":"2012-10-29T11:00:00+0000","my_alternate_url":"","updated":"2013-10-02T20:41:33+0000","id":"p00db24v","is_free":"1","is_clip":"0","brand_title":"Zoo Quest","duration":"1764","subseries_id":"","hierarchical_title":"Episode 1","type":"episode","brand_id":"p00db1jf","my_url":"\/iplayer\/episode\/p00db24v\/Zoo_Quest_Zoo_Quest_to_Madagascar_Episode_1\/","original_broadcast_datetime":"1961-06-02T19:25:00+0000","position":"1","series_title":"Zoo Quest to Madagascar","is_available_mediaset_stb_hd":"0","availability":"CURRENT","image_pid":"p01hz73r","is_downloadable":"0","short_synopsis":"David Attenborough searches for the strange creatures that inhabit Madagascar. (1961)","is_hd_only":"0","my_mediaselector_xml_url":"http:\/\/www.bbc.co.uk\/mediaselector\/4\/mtis\/all\/p00db24w","mediaQuality":"sd","versionType":""},"p00y20lw":{"my_series_url":"\/iplayer\/series\/p00xjs70\/The_People_of_Paradise\/","is_embargoed":"0","image_template_url":"http:\/\/ichef.bbci.co.uk\/images\/ic\/$recipe\/p01hz72t.jpg","my_mediaselector_json_url":"http:\/\/www.bbc.co.uk\/mediaselector\/4\/mtis\/all\/p00y20lx","play_version_has_competition_warning":"0","is_embeddable":"0","original_title":"Canoes and Coconut Crabs","stacked_container_id":"","complete_title":"The People of Paradise: Canoes and Coconut Crabs","is_simulcast":"0","subseries_title":"","is_downloadable_sd":"0","is_repeat":"0","actual_start":"2012-12-07T12:29:40+0000","masterbrand_title":"BBC","title":"5. Canoes and Coconut Crabs","is_downloadable_hd":"0","is_available_mediaset_pc_hd":"0","partner":"s0000001","is_delayed":"0","available_sibling_count":"4","my_short_url":"bbc.co.uk\/i\/p00y20lw\/","is_film":"0","contextual_family_tree":"s-e","is_available_mediaset_pc_sd":"1","passionsite_link":"http:\/\/www.bbc.co.uk\/programmes\/p00xjs70\/microsite","media_type":"video","passionsite_title":"The People of Paradise","categories":[{"short_name":"Travel","path":"lifestyle_and_leisure\/travel","parent_id":"9300054","level":"2","text":"Lifestyle & Leisure - Travel","updated":"","type":"category","id":"9200060","title":"Travel","child_categories":[]},{"short_name":"Lifestyle & Leisure","path":"lifestyle_and_leisure","parent_id":"","level":"1","text":"Lifestyle & Leisure","updated":"","type":"category","id":"9300054","title":"Lifestyle & Leisure","child_categories":[]}],"series_id":"p00xjs70","toplevel_container_id":"p00xjs70","available_until":"2038-01-01T00:00:00+0000","my_image_base_url":"http:\/\/ichef.bbci.co.uk\/programmeimages\/p01hz72t\/","is_available_mediaset_stb_sd":"0","masterbrand":"bbc_webonly","play_version_id":"p00y20lx","tag_schemes":"","is_stacked":"1","parent_id":"p00xjs70","my_playlist_url":"\/iplayer\/playlist\/p00y20lw\/","toplevel_container_title":"The People of Paradise","synopsis":"First transmitted in 1960, David Attenborough recounts his search to find one of the last double canoes in Fiji. ","has_guidance":"0","ondemand_start":"2012-10-29T15:00:00+0000","my_alternate_url":"","updated":"2013-10-02T20:40:29+0000","id":"p00y20lw","is_free":"1","is_clip":"0","brand_title":"","duration":"1806","subseries_id":"","hierarchical_title":"Canoes and Coconut Crabs","type":"episode","brand_id":"","my_url":"\/iplayer\/episode\/p00y20lw\/The_People_of_Paradise_Canoes_and_Coconut_Crabs\/","original_broadcast_datetime":"1960-05-19T19:55:00+0000","position":"5","series_title":"The People of Paradise","is_available_mediaset_stb_hd":"0","availability":"CURRENT","image_pid":"p01hz72t","is_downloadable":"0","short_synopsis":"David Attenborough retraces his search to find the rare Fijian double canoe. (1960)","is_hd_only":"0","my_mediaselector_xml_url":"http:\/\/www.bbc.co.uk\/mediaselector\/4\/mtis\/all\/p00y20lx","mediaQuality":"sd","versionType":""},"p00y207v":{"my_series_url":"\/iplayer\/series\/p00xjs70\/The_People_of_Paradise\/","is_embargoed":"0","image_template_url":"http:\/\/ichef.bbci.co.uk\/images\/ic\/$recipe\/p01hz7j1.jpg","my_mediaselector_json_url":"http:\/\/www.bbc.co.uk\/mediaselector\/4\/mtis\/all\/p00y207w","play_version_has_competition_warning":"0","is_embeddable":"0","original_title":"The Firewalkers of Fiji","stacked_container_id":"","complete_title":"The People of Paradise: The Firewalkers of Fiji","is_simulcast":"0","subseries_title":"","is_downloadable_sd":"0","is_repeat":"0","actual_start":"2012-12-07T12:27:58+0000","masterbrand_title":"BBC","title":"3. The Firewalkers of Fiji","is_downloadable_hd":"0","is_available_mediaset_pc_hd":"0","partner":"s0000001","is_delayed":"0","available_sibling_count":"4","my_short_url":"bbc.co.uk\/i\/p00y207v\/","is_film":"0","contextual_family_tree":"s-e","is_available_mediaset_pc_sd":"1","passionsite_link":"http:\/\/www.bbc.co.uk\/programmes\/p00xjs70\/microsite","media_type":"video","passionsite_title":"The People of Paradise","categories":[{"short_name":"Travel","path":"lifestyle_and_leisure\/travel","parent_id":"9300054","level":"2","text":"Lifestyle & Leisure - Travel","updated":"","type":"category","id":"9200060","title":"Travel","child_categories":[]},{"short_name":"Lifestyle & Leisure","path":"lifestyle_and_leisure","parent_id":"","level":"1","text":"Lifestyle & Leisure","updated":"","type":"category","id":"9300054","title":"Lifestyle & Leisure","child_categories":[]}],"series_id":"p00xjs70","toplevel_container_id":"p00xjs70","available_until":"2038-01-01T00:00:00+0000","my_image_base_url":"http:\/\/ichef.bbci.co.uk\/programmeimages\/p01hz7j1\/","is_available_mediaset_stb_sd":"0","masterbrand":"bbc_webonly","play_version_id":"p00y207w","tag_schemes":"","is_stacked":"1","parent_id":"p00xjs70","my_playlist_url":"\/iplayer\/playlist\/p00y207v\/","toplevel_container_title":"The People of Paradise","synopsis":"The legendary Fijian firewalks captivate David Attenborough and his crew, as they continue their tour of the South West Pacific Islands.","has_guidance":"0","ondemand_start":"2012-10-29T15:00:00+0000","my_alternate_url":"","updated":"2013-10-02T20:50:18+0000","id":"p00y207v","is_free":"1","is_clip":"0","brand_title":"","duration":"1806","subseries_id":"","hierarchical_title":"The Firewalkers of Fiji","type":"episode","brand_id":"","my_url":"\/iplayer\/episode\/p00y207v\/The_People_of_Paradise_The_Firewalkers_of_Fiji\/","original_broadcast_datetime":"1960-05-05T19:35:00+0000","position":"3","series_title":"The People of Paradise","is_available_mediaset_stb_hd":"0","availability":"CURRENT","image_pid":"p01hz7j1","is_downloadable":"0","short_synopsis":"The impressive Fijian firewalks captivate David Attenborough. (1960)","is_hd_only":"0","my_mediaselector_xml_url":"http:\/\/www.bbc.co.uk\/mediaselector\/4\/mtis\/all\/p00y207w","mediaQuality":"sd","versionType":""},"p00db25j":{"my_series_url":"\/iplayer\/series\/p00db1jx\/Zoo_Quest_Zoo_Quest_to_Madagascar\/","is_embargoed":"0","image_template_url":"http:\/\/ichef.bbci.co.uk\/images\/ic\/$recipe\/p01hz73t.jpg","my_mediaselector_json_url":"http:\/\/www.bbc.co.uk\/mediaselector\/4\/mtis\/all\/p00db25k","play_version_has_competition_warning":"0","is_embeddable":"0","original_title":"Episode 2","stacked_container_id":"","complete_title":"Zoo Quest: Zoo Quest to Madagascar: Episode 2","is_simulcast":"0","subseries_title":"","is_downloadable_sd":"0","is_repeat":"0","actual_start":"2012-12-04T10:55:00+0000","masterbrand_title":"","title":"Episode 2","is_downloadable_hd":"0","is_available_mediaset_pc_hd":"0","partner":"s0000001","is_delayed":"0","available_sibling_count":"4","my_short_url":"bbc.co.uk\/i\/p00db25j\/","is_film":"0","contextual_family_tree":"b-s-e","is_available_mediaset_pc_sd":"1","passionsite_link":"http:\/\/www.bbc.co.uk\/programmes\/p00db1jf\/microsite","media_type":"video","passionsite_title":"Zoo Quest","categories":[{"short_name":"Factual","path":"factual","parent_id":"","level":"1","text":"Factual","updated":"","type":"category","id":"9100005","title":"Factual","child_categories":[]},{"short_name":"Science & Nature","path":"factual\/science_and_nature","parent_id":"9100005","level":"2","text":"Factual - Science & Nature","updated":"","type":"category","id":"9200059","title":"Science & Nature","child_categories":[]},{"short_name":"Nature & Environment","path":"science_and_nature\/nature_and_environment","parent_id":"9200059","level":"3","text":"Factual - Science & Nature - Nature & Environment","updated":"","type":"category","id":"9300052","title":"Nature & Environment","child_categories":[]}],"series_id":"p00db1jx","toplevel_container_id":"p00db1jf","available_until":"2038-01-01T00:00:00+0000","my_image_base_url":"http:\/\/ichef.bbci.co.uk\/programmeimages\/p01hz73t\/","is_available_mediaset_stb_sd":"0","masterbrand":"","play_version_id":"p00db25k","tag_schemes":"","is_stacked":"1","parent_id":"p00db1jx","my_playlist_url":"\/iplayer\/playlist\/p00db25j\/","toplevel_container_title":"Zoo Quest","synopsis":"First transmitted in 1961, David Attenborough encounters fish that walk on land, giant chameleons and the coelacanth.","has_guidance":"0","ondemand_start":"2012-10-29T15:00:00+0000","my_alternate_url":"","updated":"2013-10-02T20:41:33+0000","id":"p00db25j","is_free":"1","is_clip":"0","brand_title":"Zoo Quest","duration":"1774","subseries_id":"","hierarchical_title":"Episode 2","type":"episode","brand_id":"p00db1jf","my_url":"\/iplayer\/episode\/p00db25j\/Zoo_Quest_Zoo_Quest_to_Madagascar_Episode_2\/","original_broadcast_datetime":"1961-06-09T19:25:00+0000","position":"2","series_title":"Zoo Quest to Madagascar","is_available_mediaset_stb_hd":"0","availability":"CURRENT","image_pid":"p01hz73t","is_downloadable":"0","short_synopsis":"David Attenborough encounters fish that walk, giant chameleons and the coelacanth. (1961)","is_hd_only":"0","my_mediaselector_xml_url":"http:\/\/www.bbc.co.uk\/mediaselector\/4\/mtis\/all\/p00db25k","mediaQuality":"sd","versionType":""}}            );
+
+            
+
+            //set the search box to display the right default text
+
+            blq.setLabel('searchSuggestion', 'Search BBC iPlayer');
+
+
+
+            gatekeeper.getInstance();
+
+
+
+            glow.lang.apply(iplayer.config, {
+
+                "IPLAYER_STATIC": "http:\/\/static.bbci.co.uk\/iplayer\/3.68.1",
+
+                "PAL_ENV": "live"            });
+
+
+
+            require(['iplayer/models/user'], function(user) {
+
+                user.setBGUIDCookie();
+
+            });
+
+
+
+            require(['idcta/idcta-1', 'iplayer/models/user'], function(idcta, user) {
+
+                if(idcta.hasCookie()) {
+
+                    // See if user can migrate - internally fires event canmigrate - migration not available via recommend auto sign in on episode page
+
+                    if (user.signinOrigin !== 'recommend') {
+
+                        user.getMigrationStatus();
+
+                    }
+
+
+
+                }
+
+                idcta.signals.signedIn.add(function () {
+
+                    if ( iplayer.utils.shouldReloadPage() ) {
+
+                        window.location.reload();
+
+                    } else {
+
+                        // Fire a custom event so that the individual components can react to it
+
+                        iplayer.events.publish('iplayer:signin');
+
+                    }
+
+                });
+
+
+
+            });
+
+
+
+            require(
+
+                ['iplayer/controllers/FavouritesCarouselInit', 'iplayer/models/favouriteevents'],
+
+                function(FavouritesCarouselInit, FavouriteEvents) {
+
+                    var carouselLoader = new FavouritesCarouselInit('#blq-main');
+
+                    var favouriteEvents = new FavouriteEvents('body');
+
+                }
+
+            );
+
+
+
+            require([
+
+                //'iplayer/controllers/Analytics',
+
+                'iplayer/controllers/UrlAction',  // Handler for actions in the URL hash
+
+                'iplayer/controllers/LiveStats',
+
+                'iplayer/controllers/Pinner',
+
+                'iplayer/controllers/MigrationOverlay'
+
+            ],
+
+            function (
+
+                //Analytics,
+
+                UrlAction,
+
+                LiveStats,
+
+                Pinner,
+
+                MigrationOverlay
+
+            ) {
+
+                //new Analytics();
+
+                new UrlAction();  // Handler for actions in the URL hash
+
+                new LiveStats();
+
+                new Pinner("tv");
+
+                new MigrationOverlay();
+
+            });
+
+
+
+            iplayer.cookie.removeRedundantIplayerCookies();
+
+
+
+
+
+            		require([
+
+			'iplayer/controllers/ListViewCtaManager',
+
+			'iplayer/controllers/Search'],
+
+			function(ListViewCtaManager, Search) {
+
+				new ListViewCtaManager();
+
+
+
+			iplayer.config.loadLocalRadioSidebar = true;
+
+			iplayer.config.loadPartnerSidebar = true;
+
+			iplayer.config.loadBBCSidebar = false;
+
+			new Search('#search');
+
+		});
+
+
+
+            glow.ready(function () {
+
+                	require([
+
+        'iplayer/controllers/OverlayManager',
+
+		'iplayer/controllers/IstatsLinkTracking'
+
+    ], function(OverlayManager, IstatsLinkTracking) {
+
+        new OverlayManager('#my-favourites-carousel-container');
+
+		new IstatsLinkTracking("SEARCH");
+
+    });
+
+            });
+
+        })
+
+    });
+
+</script>
+
+  </body> </html>               
